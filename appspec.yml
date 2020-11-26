@@ -1,18 +1,18 @@
-version: 0.0
+version: 0.2
 os: linux
 files:
   - source: /index.html
     destination: /var/www/html/
 phases:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
-
+  install:
+    commands:
+        - echo Installing..
+  pre_build:
+    commands:
+        - echo Prebuild.
+  build:
+    commands:
+        - echo build..
+  post_build:
+    commands:
+        - echo post_build..
